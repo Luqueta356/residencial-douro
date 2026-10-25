@@ -13,6 +13,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2200132797591233');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2200132797591233&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -578,5 +595,20 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 <script src="assets/js/main.js"></script>
+
+<!-- Meta Pixel: evento Contact em cliques no WhatsApp -->
+<script>
+document.addEventListener('click', function (e) {
+  var link = e.target.closest('a');
+  if (!link || !link.href) return;
+  var href = link.href.toLowerCase();
+  if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp.com') > -1 ||
+      href.indexOf('web.whatsapp.com') > -1 || href.indexOf('whatsapp://') === 0) {
+    if (typeof fbq === 'function') {
+      fbq('track', 'Contact', {content_name: 'Residencial Douro - WhatsApp', content_category: 'Imovel MCMV Campinas'});
+    }
+  }
+}, true);
+</script>
 </body>
 </html>

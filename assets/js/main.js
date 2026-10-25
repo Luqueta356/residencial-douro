@@ -170,6 +170,10 @@
       `*Interesse:* ${f.interesse.value}`,
       f.mensagem.value.trim() && `*Mensagem:* ${f.mensagem.value.trim()}`,
     ].filter(Boolean).join('\n');
+    // Meta Pixel: evento Lead no envio do formulário
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', { content_name: 'Residencial Douro - Formulario', content_category: 'Imovel MCMV Campinas' });
+    }
     window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
     msg.textContent = 'Abrindo o WhatsApp… Obrigado! Em breve um especialista falará com você.';
     form.reset();
